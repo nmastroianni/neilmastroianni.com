@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import '@/app/globals.css'
 import { cn } from '@/lib/utils'
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,11 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased dark',
-          fontSans.variable
+          'dark min-h-screen bg-background font-sans antialiased',
+          fontSans.variable,
         )}
       >
         <main>{children}</main>
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   )
