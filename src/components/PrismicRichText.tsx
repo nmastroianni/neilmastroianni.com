@@ -44,9 +44,6 @@ const defaultComponents: JSXMapSerializer = {
   paragraph: ({ children }) => {
     return <p>{children}</p>
   },
-  preformatted: ({ children }) => {
-    return <pre className=''>{children}</pre>
-  },
   embed: ({ node }) => {
     return (
       <div className="mx-auto max-w-screen-sm overflow-hidden rounded shadow-xl">

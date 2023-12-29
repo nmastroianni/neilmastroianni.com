@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import { cn } from '@/lib/utils'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
+import Navbar from '@/components/Navbar'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,6 +29,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <Navbar />
         <main>{children}</main>
         <PrismicPreview repositoryName={repositoryName} />
       </body>
