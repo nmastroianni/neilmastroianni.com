@@ -69,7 +69,61 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
-export type AllDocumentTypes = HomepageDocument
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Site Title field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  site_title: prismic.RichTextField
+
+  /**
+   * Site Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  site_description: prismic.KeyTextField
+
+  /**
+   * Site Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  site_image: prismic.ImageField<never>
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    'settings',
+    Lang
+  >
+
+export type AllDocumentTypes = HomepageDocument | SettingsDocument
 
 /**
  * Primary content in *Content → Primary*
@@ -100,9 +154,97 @@ export type ContentSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceJavascriptPrimary {
+  /**
+   * Content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter javascript code
+   * - **API ID Path**: content.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * Javascript variation for Content Slice
+ *
+ * - **API ID**: `javascript`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceJavascript = prismic.SharedSliceVariation<
+  'javascript',
+  Simplify<ContentSliceJavascriptPrimary>,
+  never
+>
+
+/**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceJsxPrimary {
+  /**
+   * Content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter javascript code
+   * - **API ID Path**: content.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * JSX variation for Content Slice
+ *
+ * - **API ID**: `jsx`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceJsx = prismic.SharedSliceVariation<
+  'jsx',
+  Simplify<ContentSliceJsxPrimary>,
+  never
+>
+
+/**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSlicePythonPrimary {
+  /**
+   * Content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter javascript code
+   * - **API ID Path**: content.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * Python variation for Content Slice
+ *
+ * - **API ID**: `python`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSlicePython = prismic.SharedSliceVariation<
+  'python',
+  Simplify<ContentSlicePythonPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Content*
  */
-type ContentSliceVariation = ContentSliceDefault
+type ContentSliceVariation =
+  | ContentSliceDefault
+  | ContentSliceJavascript
+  | ContentSliceJsx
+  | ContentSlicePython
 
 /**
  * Content Shared Slice
@@ -126,11 +268,19 @@ declare module '@prismicio/client' {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
       AllDocumentTypes,
       ContentSlice,
       ContentSliceDefaultPrimary,
+      ContentSliceJavascriptPrimary,
+      ContentSliceJsxPrimary,
+      ContentSlicePythonPrimary,
       ContentSliceVariation,
       ContentSliceDefault,
+      ContentSliceJavascript,
+      ContentSliceJsx,
+      ContentSlicePython,
     }
   }
 }
