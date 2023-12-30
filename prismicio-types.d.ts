@@ -74,6 +74,17 @@ export type HomepageDocument<Lang extends string = string> =
  */
 interface SettingsDocumentData {
   /**
+   * Domain field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.domain
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  domain: prismic.KeyTextField
+
+  /**
    * Site Title field in *Settings*
    *
    * - **Field Type**: Rich Text
