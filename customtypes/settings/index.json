@@ -6,6 +6,13 @@
   "status": true,
   "json": {
     "Main": {
+      "domain": {
+        "type": "Text",
+        "config": {
+          "label": "Domain",
+          "placeholder": ""
+        }
+      },
       "site_title": {
         "type": "StructuredText",
         "config": {

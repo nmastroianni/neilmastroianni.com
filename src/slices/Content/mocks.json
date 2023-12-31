@@ -97,5 +97,28 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "tsx",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Excepteur irure anim enim nostrud nisi nostrud aliquip incididunt nisi. Anim magna velit eu sint ex Lorem elit duis non magna minim do in deserunt. Aliqua fugiat eiusmod consequat esse do eu sint adipisicing nostrud aliqua exercitation."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

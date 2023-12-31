@@ -5,40 +5,49 @@ import {
 } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 import React from 'react'
+import Heading from '@/components/Heading'
 
 const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => {
-    return <h1>{children}</h1>
+    return (
+      <Heading as="h1" size="6xl">
+        {children}
+      </Heading>
+    )
   },
   heading2: ({ children }) => {
-    return <h2>{children}</h2>
+    return (
+      <Heading as="h2" size="5xl">
+        {children}
+      </Heading>
+    )
   },
   heading3: ({ children }) => {
     return (
-      <span className="heading">
-        <h3>{children}</h3>
-      </span>
+      <Heading as="h3" size="4xl">
+        {children}
+      </Heading>
     )
   },
   heading4: ({ children }) => {
     return (
-      <span className="heading">
-        <h4>{children}</h4>
-      </span>
+      <Heading as="h4" size="3xl">
+        {children}
+      </Heading>
     )
   },
   heading5: ({ children }) => {
     return (
-      <span className="heading">
-        <h5>{children}</h5>
-      </span>
+      <Heading as="h5" size="2xl">
+        {children}
+      </Heading>
     )
   },
   heading6: ({ children }) => {
     return (
-      <span className="heading">
-        <h6>{children}</h6>
-      </span>
+      <Heading as="h6" size="xl">
+        {children}
+      </Heading>
     )
   },
   paragraph: ({ children }) => {
