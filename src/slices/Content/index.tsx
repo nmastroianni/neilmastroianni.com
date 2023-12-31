@@ -47,6 +47,19 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           </SyntaxHighlighter>
         </Section>
       )
+    case 'tsx':
+      return (
+        <Section
+          width="lg"
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+        >
+          <SyntaxHighlighter language="tsx" style={okaidia} showLineNumbers>
+            {jscode}
+          </SyntaxHighlighter>
+        </Section>
+      )
     case 'python':
       return (
         <Section

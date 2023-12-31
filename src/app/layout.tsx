@@ -15,7 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: asText(settings.data.site_title) || 'Neil Mastroianni',
     description:
       settings.data.site_description ||
-      `Neil Mastroianni: Passionate learner, collaborator, and tech enthusiast exploring ways technology enhances our lives.`,
+      `Neil Mastroianni: Passionate learner, collaborator, and tech enthusiast 
+      exploring ways technology enhances our lives.`,
     openGraph: {
       images: [settings.data.site_image.url || ''],
     },

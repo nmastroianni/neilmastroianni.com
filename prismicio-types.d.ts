@@ -249,6 +249,34 @@ export type ContentSlicePython = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceTsxPrimary {
+  /**
+   * Content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter tsx code
+   * - **API ID Path**: content.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * TSX variation for Content Slice
+ *
+ * - **API ID**: `tsx`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceTsx = prismic.SharedSliceVariation<
+  'tsx',
+  Simplify<ContentSliceTsxPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Content*
  */
 type ContentSliceVariation =
@@ -256,6 +284,7 @@ type ContentSliceVariation =
   | ContentSliceJavascript
   | ContentSliceJsx
   | ContentSlicePython
+  | ContentSliceTsx
 
 /**
  * Content Shared Slice
@@ -265,6 +294,68 @@ type ContentSliceVariation =
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ContentSlice = prismic.SharedSlice<'content', ContentSliceVariation>
+
+/**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * First Name field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.first_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_name: prismic.KeyTextField
+
+  /**
+   * Last Name field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.last_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  last_name: prismic.KeyTextField
+
+  /**
+   * Tag Line field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.tag_line
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag_line: prismic.KeyTextField
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -287,11 +378,17 @@ declare module '@prismicio/client' {
       ContentSliceJavascriptPrimary,
       ContentSliceJsxPrimary,
       ContentSlicePythonPrimary,
+      ContentSliceTsxPrimary,
       ContentSliceVariation,
       ContentSliceDefault,
       ContentSliceJavascript,
       ContentSliceJsx,
       ContentSlicePython,
+      ContentSliceTsx,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
     }
   }
 }

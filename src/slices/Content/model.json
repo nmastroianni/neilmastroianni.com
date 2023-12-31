@@ -83,6 +83,26 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "tsx",
+      "name": "TSX",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter tsx code",
+            "allowTargetBlank": true,
+            "single": "preformatted"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
