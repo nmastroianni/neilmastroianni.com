@@ -9,7 +9,7 @@ const Navbar = async () => {
     <div className="sticky inset-x-0 top-0 z-50 h-16 bg-primary-foreground">
       <Section
         as="header"
-        width="lg"
+        width="xl"
         className="justify-start py-4 md:py-4 lg:py-6"
       >
         <div className="flex items-center">

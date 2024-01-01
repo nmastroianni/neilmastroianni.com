@@ -15,16 +15,21 @@
     "@prismicio/client": "latest",
     "@prismicio/next": "latest",
     "@prismicio/react": "latest",
+    "@react-three/drei": "^9.92.7",
+    "@react-three/fiber": "^8.15.12",
     "@types/react-syntax-highlighter": "^15.5.11",
+    "@types/three": "^0.160.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "gsap": "^3.12.4",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-syntax-highlighter": "^15.5.0",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@slicemachine/adapter-next": "latest",
