@@ -5,18 +5,18 @@
 		"primary": {
 			"first_name": {
 				"__TYPE__": "FieldContent",
-				"value": "rabbit",
-				"type": "Text"
+				"type": "Text",
+				"value": "Neil"
 			},
 			"last_name": {
 				"__TYPE__": "FieldContent",
-				"value": "ordinary",
-				"type": "Text"
+				"type": "Text",
+				"value": "Mastroianni"
 			},
 			"tag_line": {
 				"__TYPE__": "FieldContent",
-				"value": "touch",
-				"type": "Text"
+				"type": "Text",
+				"value": "Creative Educator"
 			}
 		},
 		"items": []
