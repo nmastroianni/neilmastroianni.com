@@ -12,6 +12,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from '@/components/ui/sheet'
 import { MenuIcon } from 'lucide-react'
 
@@ -47,9 +48,11 @@ const Navbar = async () => {
                   <ul className="mt-8 grid gap-y-6 text-2xl font-extrabold tracking-wider">
                     {settings.data.navigation.map((item, index) => (
                       <li key={`mobilenav-${item.label}-${index}`}>
-                        <PrismicNextLink field={item.link}>
-                          {item.label}
-                        </PrismicNextLink>
+                        <SheetClose asChild>
+                          <PrismicNextLink field={item.link}>
+                            {item.label}
+                          </PrismicNextLink>
+                        </SheetClose>
                       </li>
                     ))}
                   </ul>
