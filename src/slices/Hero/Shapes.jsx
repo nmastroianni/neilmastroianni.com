@@ -8,7 +8,7 @@ import { gsap } from 'gsap'
 
 export default function Shapes() {
   return (
-    <div className="row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0">
+    <div className="row-span-1 row-start-1 -mt-9 aspect-square overflow-hidden md:col-span-1 md:col-start-2 md:mt-3">
       <Canvas
         className="z-0"
         shadows
@@ -36,16 +36,16 @@ function Geometries() {
   const geometries = [
     {
       position: [0, 0.5, 1],
-      r: 0.6,
+      r: 0.45,
       geometry: new THREE.OctahedronGeometry(3.5),
     },
     {
-      position: [-1, 2, 0],
-      r: 0.4,
-      geometry: new THREE.IcosahedronGeometry(1),
+      position: [-1.5, -1.1, 2],
+      r: 0.55,
+      geometry: new THREE.IcosahedronGeometry(1.1),
     },
     {
-      position: [3, 2, -6],
+      position: [3.3, 2, -6],
       r: 0.4,
       geometry: new THREE.TetrahedronGeometry(1.8),
     },

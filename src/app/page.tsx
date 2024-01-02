@@ -16,6 +16,41 @@ export default async function Page() {
         '@type': 'Person',
         '@id': `https://${settings.data.domain || `example.com`}/#neil`,
         name: 'Neil Mastroianni',
+        description: settings.data.site_description || undefined,
+        givenName: 'Neil',
+        familyName: 'Mastroianni',
+        telephone: '732-481-2430',
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `https://${settings.data.domain || `example.com`}/#site`,
+        publisher: {
+          '@id': `https://${settings.data.domain || `example.com`}/#neil`,
+        },
+        url: `https://${settings.data.domain || `example.com`}/`,
+        inLanguage: 'en-US',
+        name: 'Neil Mastroianni',
+      },
+      {
+        '@type': 'WebPage',
+        url: `https://${settings.data.domain || `example.com`}/`,
+        name: 'Home | Neil Mastroianni - Creative Educator',
+        datePublished: page.first_publication_date,
+        dateModified: page.last_publication_date || page.first_publication_date,
+        about: {
+          '@id': `https://${settings.data.domain || `example.com`}/#neil`,
+        },
+        isPartOf: {
+          '@id': `https://${settings.data.domain || `example.com`}/#site`,
+        },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url:
+            page.data.meta_image.url ||
+            settings.data.site_image.url ||
+            undefined,
+        },
+        inLanguage: 'en-US',
       },
     ],
   }

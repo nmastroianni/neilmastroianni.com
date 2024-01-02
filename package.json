@@ -15,6 +15,8 @@
     "@prismicio/client": "latest",
     "@prismicio/next": "latest",
     "@prismicio/react": "latest",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "@types/react-syntax-highlighter": "^15.5.11",
