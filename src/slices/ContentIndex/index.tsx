@@ -5,6 +5,7 @@ import { createClient } from '@/prismicio'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicRichText } from '@/components/PrismicRichText'
+import Pagination from '@/components/Pagination'
 
 /**
  * Props for `ContentIndex`.
@@ -65,15 +66,24 @@ const ContentIndex = async ({
         </div>
       )}
       {content && (
-        <ContentList
-          content={content.results}
-          ctaText={
-            isFilled.keyText(slice.primary.content_cta_text)
-              ? slice.primary.content_cta_text
-              : 'Read More'
-          }
-          fallbackItemImage={slice.primary.fallback_item_image}
-        />
+        <>
+          <ContentList
+            content={content.results}
+            ctaText={
+              isFilled.keyText(slice.primary.content_cta_text)
+                ? slice.primary.content_cta_text
+                : 'Read More'
+            }
+            fallbackItemImage={slice.primary.fallback_item_image}
+          />
+          {content?.total_pages > 1 && (
+            <Pagination
+              hasNextPage={content?.next_page !== null}
+              hasPrevPage={content?.prev_page !== null}
+              totalPages={content?.total_pages}
+            />
+          )}
+        </>
       )}
     </Section>
   )

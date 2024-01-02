@@ -5,6 +5,15 @@ import Link from 'next/link'
 import { PrismicNextLink } from '@prismicio/next'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from './ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
+import { MenuIcon } from 'lucide-react'
 
 const Navbar = async () => {
   const client = createClient()
@@ -14,13 +23,43 @@ const Navbar = async () => {
       <Section
         as="header"
         width="xl"
-        className="justify-start py-2 text-lg md:py-4 lg:py-6 lg:text-xl"
+        className="mb-6 justify-start py-4 text-lg md:mb-0 md:py-4 lg:py-6 lg:text-xl"
       >
         <div className="flex items-center justify-between">
           <Link href="/" aria-label="home">
             {asText(settings.data.site_title)}
           </Link>
-          <ul className="flex gap-x-4">
+          {/* mobile navigation */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger className={buttonVariants({ variant: 'ghost' })}>
+                <MenuIcon />
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Menu</SheetTitle>
+                  <SheetDescription className="text-left">
+                    Thank you for checking out my menu. I hope you find
+                    something interesting.
+                  </SheetDescription>
+                </SheetHeader>
+                {settings.data.navigation.length > 0 && (
+                  <ul className="mt-8 grid gap-y-6 text-2xl font-extrabold tracking-wider">
+                    {settings.data.navigation.map((item, index) => (
+                      <li key={`mobilenav-${item.label}-${index}`}>
+                        <PrismicNextLink field={item.link}>
+                          {item.label}
+                        </PrismicNextLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* end mobile navigation */}
+          <ul className="hidden gap-x-4 md:flex">
             {isFilled.group(settings.data.navigation)
               ? settings.data.navigation.map(({ link, label }, i) => {
                   if (label) {
