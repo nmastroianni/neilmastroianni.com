@@ -36,16 +36,16 @@ function Geometries() {
   const geometries = [
     {
       position: [0, 0.5, 1],
-      r: 0.6,
+      r: 0.45,
       geometry: new THREE.OctahedronGeometry(3.5),
     },
     {
-      position: [-1, 2, 0],
-      r: 0.4,
-      geometry: new THREE.IcosahedronGeometry(1),
+      position: [-1.5, -1.1, 2],
+      r: 0.55,
+      geometry: new THREE.IcosahedronGeometry(1.1),
     },
     {
-      position: [3, 2, -6],
+      position: [3.3, 2, -6],
       r: 0.4,
       geometry: new THREE.TetrahedronGeometry(1.8),
     },
