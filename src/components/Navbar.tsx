@@ -40,8 +40,8 @@ const Navbar = async () => {
                 <SheetHeader>
                   <SheetTitle>Menu</SheetTitle>
                   <SheetDescription className="text-left">
-                    Thank you for checking out my menu. I hope you find
-                    something interesting.
+                    Thank you for checking out my menu. I there is something
+                    here that interests you.
                   </SheetDescription>
                 </SheetHeader>
                 {settings.data.navigation.length > 0 && (
@@ -72,7 +72,7 @@ const Navbar = async () => {
                           field={link}
                           className={cn(
                             'px-4 py-2',
-                            buttonVariants({ variant: 'ghost' }),
+                            buttonVariants({ variant: 'ghost', size: 'lg' }),
                           )}
                         >
                           {label}
