@@ -43,7 +43,6 @@ export default function RootLayout({
       >
         <Navbar />
         <main>{children}</main>
-        <div className="h-[200vh]" />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
