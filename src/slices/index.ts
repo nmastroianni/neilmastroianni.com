@@ -6,6 +6,7 @@ export const components = {
   biography: dynamic(() => import('./Biography')),
   content: dynamic(() => import('./Content')),
   content_index: dynamic(() => import('./ContentIndex')),
+  experience: dynamic(() => import('./Experience')),
   hero: dynamic(() => import('./Hero')),
   marquee: dynamic(() => import('./Marquee')),
 }
