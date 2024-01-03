@@ -18,7 +18,7 @@ export default function Heading({
   return (
     <Comp
       className={cn(
-        'text-skin-neutral font-bold',
+        'font-bold',
         {
           'text-3xl leading-[4rem] md:text-5xl lg:text-6xl lg:leading-[6rem] xl:text-7xl':
             size === '7xl',

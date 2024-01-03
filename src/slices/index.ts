@@ -7,4 +7,5 @@ export const components = {
   content: dynamic(() => import('./Content')),
   content_index: dynamic(() => import('./ContentIndex')),
   hero: dynamic(() => import('./Hero')),
+  marquee: dynamic(() => import('./Marquee')),
 }
