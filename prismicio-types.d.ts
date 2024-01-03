@@ -4,7 +4,11 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
-type HomepageDocumentDataSlicesSlice = BiographySlice | HeroSlice | ContentSlice
+type HomepageDocumentDataSlicesSlice =
+  | MarqueeSlice
+  | BiographySlice
+  | HeroSlice
+  | ContentSlice
 
 /**
  * Content for Homepage documents
@@ -828,6 +832,73 @@ type HeroSliceVariation = HeroSliceDefault
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
 
+/**
+ * Primary content in *Marquee → Primary*
+ */
+export interface MarqueeSliceDefaultPrimary {
+  /**
+   * Heading field in *Marquee → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *Marquee → Items*
+ */
+export interface MarqueeSliceDefaultItem {
+  /**
+   * Name field in *Marquee → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField
+
+  /**
+   * Color field in *Marquee → Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.items[].color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField
+}
+
+/**
+ * Default variation for Marquee Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MarqueeSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<MarqueeSliceDefaultPrimary>,
+  Simplify<MarqueeSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Marquee*
+ */
+type MarqueeSliceVariation = MarqueeSliceDefault
+
+/**
+ * Marquee Shared Slice
+ *
+ * - **API ID**: `marquee`
+ * - **Description**: Marquee
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MarqueeSlice = prismic.SharedSlice<'marquee', MarqueeSliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -878,6 +949,11 @@ declare module '@prismicio/client' {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      MarqueeSlice,
+      MarqueeSliceDefaultPrimary,
+      MarqueeSliceDefaultItem,
+      MarqueeSliceVariation,
+      MarqueeSliceDefault,
     }
   }
 }

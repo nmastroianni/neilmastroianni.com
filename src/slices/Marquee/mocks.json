@@ -1,0 +1,44 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Marquee Slice",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"name",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "NextJS"
+						}
+					],
+					[
+						"color",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Color",
+							"value": "#B769D9"
+						}
+					]
+				]
+			}
+		]
+	}
+]
