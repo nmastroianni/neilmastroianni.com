@@ -6,6 +6,7 @@ import { asText } from '@prismicio/client'
 import { cn } from '@/lib/utils'
 import { PrismicPreview } from '@prismicio/next'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         <Navbar />
         <main>{children}</main>
+        <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
