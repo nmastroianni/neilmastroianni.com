@@ -386,6 +386,17 @@ interface SettingsDocumentData {
   site_image: prismic.ImageField<never>
 
   /**
+   * Navigation Description field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navigation_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  navigation_description: prismic.RichTextField
+
+  /**
    * Navigation field in *Settings*
    *
    * - **Field Type**: Group
