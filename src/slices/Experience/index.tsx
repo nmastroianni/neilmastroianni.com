@@ -19,12 +19,12 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       data-slice-variation={slice.variation}
       width="xl"
     >
-      <Heading as="h2" size="5xl">
+      <Heading as="h2" size="6xl">
         {slice.primary.heading}
       </Heading>
       {slice.items.map((item, index) => (
         <div key={index} className="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
-          <Heading as="h3" size="3xl">
+          <Heading as="h3" size="4xl">
             {item.title}
           </Heading>
 
@@ -33,7 +33,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             <span className="text-3xl font-extralight">/</span>{' '}
             <span>{item.organization}</span>
           </div>
-          <div className="prose prose-lg prose-invert mt-4">
+          <div className="prose prose-invert mt-4 lg:prose-lg xl:prose-xl 2xl:prose-2xl">
             <PrismicRichText field={item.description} />
           </div>
         </div>
