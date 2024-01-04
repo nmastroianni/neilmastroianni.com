@@ -175,6 +175,17 @@ interface PostDocumentData {
   featured_image: prismic.ImageField<never>
 
   /**
+   * Excerpt field in *Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
    * Slice Zone field in *Post*
    *
    * - **Field Type**: Slice Zone
@@ -256,6 +267,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   featured_image: prismic.ImageField<never>
+
+  /**
+   * Excerpt field in *Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
 
   /**
    * Slice Zone field in *Project*

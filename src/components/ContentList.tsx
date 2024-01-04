@@ -139,30 +139,42 @@ const ContentList = ({
           >
             <Link
               href={item.url || '#'}
-              className="flex flex-col justify-between border-t border-t-secondary py-10 md:flex-row md:items-center"
+              className="flex flex-col justify-between border-t border-t-secondary py-10 md:items-start"
               aria-label={asText(item.data.title) || 'View the content'}
             >
-              <div className="flex flex-col gap-y-3">
-                <PrismicRichText field={item.data.title} />
-                <div className="flex gap-3">
-                  {item.tags.length > 0 &&
-                    item.tags.map(tag => (
-                      <span
-                        key={item.id + tag}
-                        className={cn(
-                          'block',
-                          badgeVariants({ variant: 'secondary' }),
-                        )}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+              <div className="flex w-full flex-col justify-between md:flex-row md:items-center">
+                <div className="flex flex-col gap-y-3">
+                  <PrismicRichText field={item.data.title} />
+                  <div className="flex gap-3">
+                    {item.tags.length > 0 &&
+                      item.tags.map(tag => (
+                        <span
+                          key={item.id + tag}
+                          className={cn(
+                            'block',
+                            badgeVariants({ variant: 'secondary' }),
+                          )}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                  </div>
                 </div>
+                <span
+                  className={cn(
+                    'my-6 md:my-0',
+                    buttonVariants({ variant: 'outline' }),
+                  )}
+                >
+                  {ctaText}
+                  <ArrowUpRight />
+                </span>
               </div>
-              <span className={buttonVariants({ variant: 'outline' })}>
-                {ctaText}
-                <ArrowUpRight />
-              </span>
+              {isFilled.richText(item.data.excerpt) ? (
+                <div className="prose my-4 lg:prose-lg dark:prose-invert">
+                  <PrismicRichText field={item.data.excerpt} />
+                </div>
+              ) : null}
             </Link>
           </li>
         ))}
