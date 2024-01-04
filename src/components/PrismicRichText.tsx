@@ -6,6 +6,7 @@ import {
 import * as prismic from '@prismicio/client'
 import React from 'react'
 import Heading from '@/components/Heading'
+import Image from 'next/image'
 
 const defaultComponents: JSXMapSerializer = {
   heading1: ({ children }) => {
@@ -61,6 +62,17 @@ const defaultComponents: JSXMapSerializer = {
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
         />
       </div>
+    )
+  },
+  image: ({ node }) => {
+    return (
+      <Image
+        src={node.url}
+        width={node.dimensions.width}
+        height={node.dimensions.height}
+        alt={node.alt || ''}
+        className="aspect-video rounded-md"
+      />
     )
   },
 }
