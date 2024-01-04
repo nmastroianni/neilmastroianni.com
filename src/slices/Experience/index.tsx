@@ -18,20 +18,25 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
+      className="border-l border-r border-secondary"
     >
-      <Heading as="h2" size="6xl">
-        {slice.primary.heading}
-      </Heading>
+      <div className="mx-auto w-full max-w-prose">
+        <Heading as="h2" size="6xl" className="max-w-prose">
+          {slice.primary.heading}
+        </Heading>
+      </div>
       {slice.items.map((item, index) => (
-        <div key={index} className="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
+        <div key={index} className="mx-auto mt-8 max-w-prose md:mt-16">
           <Heading as="h3" size="4xl">
             {item.title}
           </Heading>
 
-          <div className="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold tracking-tight text-slate-400">
-            <span>{item.years}</span>{' '}
-            <span className="text-3xl font-extralight">/</span>{' '}
-            <span>{item.organization}</span>
+          <div className="mt-1 flex w-fit items-center gap-1 text-2xl tracking-tight text-slate-400">
+            <Heading as="h4" size="3xl" className="font-medium">
+              <span>{item.years}</span>{' '}
+              <span className="text-xl font-extralight lg:text-3xl">/</span>{' '}
+              {item.organization}
+            </Heading>
           </div>
           <div className="prose prose-invert mt-4 lg:prose-lg xl:prose-xl 2xl:prose-2xl">
             <PrismicRichText field={item.description} />
