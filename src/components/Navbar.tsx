@@ -15,6 +15,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet'
 import { MenuIcon } from 'lucide-react'
+import { PrismicRichText } from './PrismicRichText'
 
 const Navbar = async () => {
   const client = createClient()
@@ -40,8 +41,13 @@ const Navbar = async () => {
                 <SheetHeader>
                   <SheetTitle>Menu</SheetTitle>
                   <SheetDescription className="text-left">
-                    Thank you for checking out my menu. I there is something
-                    here that interests you.
+                    {isFilled.richText(
+                      settings.data.navigation_description,
+                    ) && (
+                      <PrismicRichText
+                        field={settings.data.navigation_description}
+                      />
+                    )}
                   </SheetDescription>
                 </SheetHeader>
                 {settings.data.navigation.length > 0 && (

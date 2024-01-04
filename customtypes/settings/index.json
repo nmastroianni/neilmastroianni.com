@@ -37,6 +37,15 @@
           "thumbnails": []
         }
       },
+      "navigation_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Navigation Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
+        }
+      },
       "navigation": {
         "type": "Group",
         "config": {
