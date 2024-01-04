@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import React from 'react'
 import { createClient } from '@/prismicio'
 import { PrismicNextLink } from '@prismicio/next'
@@ -6,6 +5,7 @@ import Link from 'next/link'
 import Section from '@/components/Section'
 import { asText, isFilled } from '@prismicio/client'
 import { Github, Linkedin, Twitter } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export default async function Footer() {
   const client = createClient()
@@ -36,7 +36,7 @@ export default async function Footer() {
               <React.Fragment key={label}>
                 <li>
                   <PrismicNextLink
-                    className={clsx(
+                    className={cn(
                       'group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold text-secondary-foreground transition-colors duration-150 hover:hover:text-primary',
                     )}
                     field={link}
