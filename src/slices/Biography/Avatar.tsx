@@ -72,8 +72,9 @@ const Avatar = ({ image, className }: AvatarProps) => {
       >
         <PrismicNextImage
           field={image}
-          imgixParams={{ flip: 'h', q: 90 }}
+          imgixParams={{ flip: 'h', q: 90, w: 360, h: 360 }}
           className="avatar-image z-[-1] h-full w-full object-fill"
+          priority
         />
         <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 md:block" />
       </div>
