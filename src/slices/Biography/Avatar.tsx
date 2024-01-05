@@ -59,8 +59,8 @@ const Avatar = ({ image, className }: AvatarProps) => {
             0,
           )
       }
-      return () => ctx.revert()
     }, component)
+    return () => ctx.revert()
   }, [])
   return (
     <div ref={component} className="relative w-full">

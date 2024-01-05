@@ -7,6 +7,9 @@ import { cn } from '@/lib/utils'
 import { PrismicPreview } from '@prismicio/next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Suspense } from 'react'
+import Analytics from '@/components/Analytics'
+import Consent from '@/components/Consent'
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
@@ -42,9 +45,13 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <Suspense>
+          <Analytics />
+        </Suspense>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Consent />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>

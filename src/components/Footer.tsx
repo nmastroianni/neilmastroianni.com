@@ -11,26 +11,24 @@ export default async function Footer() {
   const client = createClient()
   const settings = await client.getSingle('settings')
   return (
-    <Section as="footer" className="text-secondary-foreground">
-      <div className="container mx-auto mt-20 flex flex-col items-center justify-between gap-6 py-8 sm:flex-row ">
-        <div className="name flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:flex-row sm:justify-self-start">
+    <Section
+      as="footer"
+      width="xl"
+      className="text-secondary-foreground md:px-0"
+    >
+      <div className="mx-auto mt-20 grid w-full gap-6 py-8 md:grid-cols-3">
+        <div className="name flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:justify-self-start">
           <Link
             href="/"
             className="text-xl font-extrabold tracking-tighter text-secondary-foreground transition-colors duration-150 hover:text-primary"
           >
             {asText(settings.data.site_title)}
           </Link>
-          <span
-            className="hidden text-5xl font-extralight leading-[0] text-secondary sm:inline"
-            aria-hidden={true}
-          >
-            /
-          </span>
           <p className=" text-sm text-secondary-foreground ">
             © {new Date().getFullYear()} {asText(settings.data.site_title)}
           </p>
         </div>
-        <nav className="navigation" aria-label="Footer Navigation">
+        <nav className="flex justify-center" aria-label="Footer Navigation">
           <ul className="flex items-center gap-1">
             {settings.data.navigation.map(({ link, label }, index) => (
               <React.Fragment key={label}>
