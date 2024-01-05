@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'dark min-h-screen bg-background font-sans antialiased',
+          'dark flex min-h-screen flex-col bg-background font-sans antialiased',
           fontSans.variable,
         )}
       >

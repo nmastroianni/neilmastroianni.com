@@ -71,7 +71,7 @@ const defaultComponents: JSXMapSerializer = {
         width={node.dimensions.width}
         height={node.dimensions.height}
         alt={node.alt || ''}
-        className="aspect-video rounded-md"
+        className="rounded-md"
       />
     )
   },
