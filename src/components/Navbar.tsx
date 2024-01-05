@@ -36,6 +36,7 @@ const Navbar = async () => {
             <Sheet>
               <SheetTrigger className={buttonVariants({ variant: 'ghost' })}>
                 <MenuIcon />
+                <span className="sr-only">Open Main Menu</span>
               </SheetTrigger>
               <SheetContent>
                 <SheetHeader>
