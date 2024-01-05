@@ -17,9 +17,12 @@ export default function ContentBody({
         <Heading as="h1" size="6xl">
           {asText(page.data.title)}
         </Heading>
-        <div className="flex gap-4 text-primary">
+        <div className="flex flex-wrap gap-x-4 text-primary">
           {page.tags.map((tag, index) => (
-            <span key={index} className={cn('mt-4 text-xl font-bold')}>
+            <span
+              key={index}
+              className={cn('mt-4 text-lg font-bold md:text-xl')}
+            >
               {tag}
             </span>
           ))}
