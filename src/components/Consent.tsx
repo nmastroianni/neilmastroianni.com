@@ -41,6 +41,8 @@ export default function Consent() {
         }, component)
         return () => ctx.revert()
       } else {
+        setHideBanner(true)
+        setRenderBanner(false)
         let consentMode: Preferences = JSON.parse(
           `${localStorage.getItem('consentMode')}`,
         )
@@ -53,6 +55,7 @@ export default function Consent() {
             timeDifference / (1000 * 60 * 60 * 24),
           )
           daysSinceDenied > 14 && localStorage.removeItem('consentMode')
+          setRenderBanner(true)
         }
       }
     }, 3000)
@@ -120,7 +123,7 @@ export default function Consent() {
             <Button
               variant="ghost"
               className="text-secondary"
-              onClick={e => {
+              onClick={() => {
                 setHideBanner(true)
                 localStorage.setItem(
                   'consentMode',
