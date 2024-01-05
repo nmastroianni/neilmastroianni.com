@@ -14,7 +14,7 @@ export default async function Footer() {
     <Section
       as="footer"
       width="xl"
-      className="text-secondary-foreground md:px-0"
+      className="mt-auto text-secondary-foreground md:px-0"
     >
       <div className="mx-auto mt-20 grid w-full gap-6 py-8 md:grid-cols-3">
         <div className="name flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:justify-self-start">

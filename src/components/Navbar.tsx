@@ -21,7 +21,7 @@ const Navbar = async () => {
   const client = createClient()
   const settings = await client.getSingle('settings')
   return (
-    <div className="z-50 mx-auto max-w-screen-xl bg-primary-foreground md:sticky md:top-0 md:rounded-b-lg">
+    <div className="z-50 mx-auto w-full max-w-screen-xl bg-primary-foreground md:sticky md:top-0 md:rounded-b-lg">
       <Section
         as="header"
         width="xl"
