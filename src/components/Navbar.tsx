@@ -25,7 +25,7 @@ const Navbar = async () => {
       <Section
         as="header"
         width="xl"
-        className="mb-6 justify-start py-4 text-lg md:mb-0 md:py-4 lg:py-6 lg:text-xl"
+        className="justify-start py-4 text-lg md:mb-0 md:py-4 lg:py-6 lg:text-xl"
       >
         <div className="flex items-center justify-between">
           <Link href="/" aria-label="home">
