@@ -8,7 +8,7 @@ import { gsap } from 'gsap'
 
 export default function Shapes() {
   return (
-    <div className="row-span-1 row-start-1 -mt-9 aspect-square overflow-hidden md:col-span-1 md:col-start-2 md:mt-3">
+    <div className="aspect-1 row-span-1 row-start-1 -mt-9 overflow-hidden md:col-span-1 md:col-start-2 md:mt-3">
       <Canvas
         className="z-0"
         shadows
