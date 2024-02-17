@@ -103,6 +103,26 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter javascript code",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

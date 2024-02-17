@@ -23,7 +23,7 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           width="lg"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
         >
           <SyntaxHighlighter
             language="javascript"
@@ -40,7 +40,7 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           width="lg"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
         >
           <SyntaxHighlighter language="jsx" style={okaidia} showLineNumbers>
             {jscode}
@@ -53,7 +53,7 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           width="lg"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
         >
           <SyntaxHighlighter language="tsx" style={okaidia} showLineNumbers>
             {jscode}
@@ -66,9 +66,22 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           width="lg"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
         >
           <SyntaxHighlighter language="python" style={okaidia} showLineNumbers>
+            {jscode}
+          </SyntaxHighlighter>
+        </Section>
+      )
+    case 'shell':
+      return (
+        <Section
+          width="lg"
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
+        >
+          <SyntaxHighlighter language="bash" style={okaidia} showLineNumbers>
             {jscode}
           </SyntaxHighlighter>
         </Section>
@@ -79,7 +92,7 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
           width="lg"
           data-slice-type={slice.slice_type}
           data-slice-variation={slice.variation}
-          className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+          className="prose mx-auto block w-full dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl"
         >
           <PrismicRichText field={slice.primary.content} />
         </Section>

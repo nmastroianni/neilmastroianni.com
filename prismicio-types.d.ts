@@ -701,6 +701,34 @@ export type ContentSliceTsx = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceShellPrimary {
+  /**
+   * Content field in *Content → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter javascript code
+   * - **API ID Path**: content.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField
+}
+
+/**
+ * Shell variation for Content Slice
+ *
+ * - **API ID**: `shell`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceShell = prismic.SharedSliceVariation<
+  'shell',
+  Simplify<ContentSliceShellPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Content*
  */
 type ContentSliceVariation =
@@ -709,6 +737,7 @@ type ContentSliceVariation =
   | ContentSliceJsx
   | ContentSlicePython
   | ContentSliceTsx
+  | ContentSliceShell
 
 /**
  * Content Shared Slice
@@ -1059,12 +1088,14 @@ declare module '@prismicio/client' {
       ContentSliceJsxPrimary,
       ContentSlicePythonPrimary,
       ContentSliceTsxPrimary,
+      ContentSliceShellPrimary,
       ContentSliceVariation,
       ContentSliceDefault,
       ContentSliceJavascript,
       ContentSliceJsx,
       ContentSlicePython,
       ContentSliceTsx,
+      ContentSliceShell,
       ContentIndexSlice,
       ContentIndexSliceDefaultPrimary,
       ContentIndexSliceVariation,
