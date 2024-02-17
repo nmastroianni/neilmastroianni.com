@@ -7,25 +7,36 @@ import * as prismic from '@prismicio/client'
 import React from 'react'
 import Heading from '@/components/Heading'
 import Image from 'next/image'
+import { slugifyHeading } from '@/lib/slugifyHeading'
 
 const defaultComponents: JSXMapSerializer = {
-  heading1: ({ children }) => {
+  heading1: ({ children, node }) => {
     return (
-      <Heading as="h1" size="6xl">
+      <Heading
+        as="h1"
+        size="6xl"
+        id={slugifyHeading(node)}
+        className="lg:scroll-mt-24"
+      >
         {children}
       </Heading>
     )
   },
-  heading2: ({ children }) => {
+  heading2: ({ children, node }) => {
     return (
-      <Heading as="h2" size="5xl">
+      <Heading
+        as="h2"
+        size="5xl"
+        id={slugifyHeading(node)}
+        className="lg:scroll-mt-24"
+      >
         {children}
       </Heading>
     )
   },
-  heading3: ({ children }) => {
+  heading3: ({ children, node }) => {
     return (
-      <Heading as="h3" size="4xl">
+      <Heading as="h3" size="4xl" id={slugifyHeading(node)}>
         {children}
       </Heading>
     )
