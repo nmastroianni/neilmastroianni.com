@@ -14,10 +14,10 @@ export default async function Footer() {
     <Section
       as="footer"
       width="xl"
-      className="mt-auto w-full text-secondary-foreground md:px-0"
+      className="mt-auto w-full text-secondary-foreground lg:px-0"
     >
-      <div className="mx-auto mt-20 grid w-full gap-6 py-8 md:grid-cols-3">
-        <div className="name group flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:justify-self-start">
+      <div className="flex flex-col justify-between gap-y-8 px-4 lg:flex-row lg:gap-y-0">
+        <div className="name group flex flex-1 flex-col items-center justify-center gap-x-4 gap-y-2 sm:justify-self-start">
           <Link
             href="/"
             className="text-xl font-extrabold tracking-tighter text-secondary-foreground transition-colors duration-150 group-hover:text-primary"
@@ -28,7 +28,10 @@ export default async function Footer() {
             © {new Date().getFullYear()} {asText(settings.data.site_title)}
           </p>
         </div>
-        <nav className="flex justify-center" aria-label="Footer Navigation">
+        <nav
+          className="flex flex-1 justify-center"
+          aria-label="Footer Navigation"
+        >
           <ul className="flex items-center gap-1">
             {settings.data.navigation.map(({ link, label }, index) => (
               <React.Fragment key={label}>
@@ -54,7 +57,7 @@ export default async function Footer() {
             ))}
           </ul>
         </nav>
-        <div className="socials inline-flex justify-center sm:justify-end">
+        <div className="socials inline-flex flex-1 justify-center">
           {isFilled.link(settings.data.github) && (
             <PrismicNextLink
               field={settings.data.github}

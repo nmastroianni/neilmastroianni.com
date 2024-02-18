@@ -63,12 +63,9 @@ const Avatar = ({ image, className }: AvatarProps) => {
     return () => ctx.revert()
   }, [])
   return (
-    <div ref={component} className="relative w-full">
+    <div ref={component} className="w-fulls relative">
       <div
-        className={cn(
-          'avatar relative aspect-square overflow-hidden',
-          className,
-        )}
+        className={cn('avatar aspect-1 relative overflow-hidden', className)}
       >
         <PrismicNextImage
           field={image}
