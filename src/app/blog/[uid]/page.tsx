@@ -57,10 +57,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const client = createClient()
   const page = await client.getByUID('post', params.uid).catch(() => notFound())
+  const settings = await client.getSingle('settings')
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: `${asText(page.data.title) || page.data.meta_title} • ${asText(
+      settings.data.site_title,
+    )}`,
+    description: page.data.meta_description || settings.data.site_description,
+    openGraph: {
+      images: [page.data.meta_image.url || settings.data.site_image.url || ''],
+    },
   }
 }
 
