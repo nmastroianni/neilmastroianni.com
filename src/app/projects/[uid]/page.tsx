@@ -24,6 +24,13 @@ export default async function Page({ params }: { params: Params }) {
         '@id': `https://${settings.data.domain || `example.com`}/#site`,
         name: asText(settings.data.site_title) || '',
         url: `https://${settings.data.domain || `example.com`}/`,
+        publisher: {
+          '@type': 'Person',
+          '@id': `https://${settings.data.domain || `example.com`}/#neil`,
+          name: 'Neil Mastroianni',
+          givenName: 'Neil',
+          familyName: 'Mastroianni',
+        },
       },
       {
         '@type': 'BlogPosting',
@@ -39,6 +46,14 @@ export default async function Page({ params }: { params: Params }) {
         datePublished: page.first_publication_date,
         dateModified: page.last_publication_date || undefined,
         image: page.data.featured_image.url || undefined,
+        author: {
+          '@type': 'Person',
+          '@id': `https://${settings.data.domain || `example.com`}/#neil`,
+          name: 'Neil Mastroianni',
+          givenName: 'Neil',
+          familyName: 'Mastroianni',
+        },
+        inLanguage: 'en-US',
       },
     ],
   }
