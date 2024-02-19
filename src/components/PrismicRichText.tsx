@@ -77,13 +77,16 @@ const defaultComponents: JSXMapSerializer = {
   },
   image: ({ node }) => {
     return (
-      <Image
-        src={node.url}
-        width={node.dimensions.width}
-        height={node.dimensions.height}
-        alt={node.alt || ''}
-        className="rounded-md"
-      />
+      <div className="flex justify-center">
+        <Image
+          src={node.url}
+          width={node.dimensions.width}
+          height={node.dimensions.height}
+          alt={node.alt || ''}
+          className="rounded-md"
+          title={node.alt || ''}
+        />
+      </div>
     )
   },
 }

@@ -12,7 +12,7 @@ const TocNavElement = ({ node, children, level, activeId }) => {
 
   return (
     <li
-      className={cn('', {
+      className={cn({
         'border-b pb-3 pl-2 font-semibold': level === 1,
         'ml-8': level === 2,
         'list-disc': id === activeId && level !== 1,
@@ -120,7 +120,7 @@ export function Toc({ slices, title }) {
         >
           Table of Contents
         </Heading>
-        <ol className="mt-4 space-y-1" role="list" ref={headingsList}>
+        <ol className="mt-4 space-y-2.5" role="list" ref={headingsList}>
           <TocNavElement
             node={{ text: asText(title) }}
             level={1}
