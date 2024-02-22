@@ -44,6 +44,7 @@ export default function ContentBody({
                     month: 'long',
                     day: 'numeric',
                     year: 'numeric',
+                    timeZone: 'America/New_York',
                   },
                 )
               : 'Not Yet Published'}
