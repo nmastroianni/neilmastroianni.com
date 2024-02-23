@@ -1,6 +1,6 @@
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Section from '@/components/Section'
-import { Content } from '@prismicio/client'
+import { Content as PrismicContent } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -9,7 +9,7 @@ import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism'
 /**
  * Props for `Content`.
  */
-export type ContentProps = SliceComponentProps<Content.ContentSlice>
+export type ContentProps = SliceComponentProps<PrismicContent.ContentSlice>
 
 /**
  * Component for "Content" Slices.
