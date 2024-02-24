@@ -154,6 +154,7 @@ export function Toc({ slices, title }) {
                       </TocNavElement>
                     ),
                     heading3: () => <></>,
+                    heading4: () => <></>,
                     paragraph: () => <></>,
                     preformatted: () => <></>,
                     strong: () => <></>,
