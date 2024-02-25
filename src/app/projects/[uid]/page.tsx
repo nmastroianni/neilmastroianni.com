@@ -88,6 +88,9 @@ export async function generateMetadata({
     openGraph: {
       images: [page.data.meta_image.url || settings.data.site_image.url || ''],
     },
+    alternates: {
+      canonical: `https://${settings.data.domain || `example.com`}${page.url}`,
+    },
   }
 }
 
