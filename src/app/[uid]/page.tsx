@@ -20,12 +20,12 @@ export default async function Page({
 }) {
   const client = createClient()
   const page = await client.getByUID('page', params.uid).catch(() => notFound())
-
+  const pageNumber = { page: searchParams.page }
   return (
     <SliceZone
       slices={page.data.slices}
       components={components}
-      context={searchParams}
+      context={pageNumber}
     />
   )
 }
