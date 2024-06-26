@@ -36,7 +36,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   heading3: ({ children, node }) => {
     return (
-      <Heading as="h3" size="4xl" id={slugifyHeading(node)}>
+      <Heading as="h3" size="4xl" id={slugifyHeading(node)} className="lg:scroll-mt-24">
         {children}
       </Heading>
     )
