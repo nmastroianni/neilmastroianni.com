@@ -1,7 +1,7 @@
 import {
   PrismicRichText as BasePrismicRichText,
   JSXMapSerializer,
-  PrismicRichTextProps,
+  PrismicRichTextProps as BasePrismicRichTextProps,
 } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 import React from 'react'
@@ -36,7 +36,12 @@ const defaultComponents: JSXMapSerializer = {
   },
   heading3: ({ children, node }) => {
     return (
-      <Heading as="h3" size="4xl" id={slugifyHeading(node)} className="lg:scroll-mt-24">
+      <Heading
+        as="h3"
+        size="4xl"
+        id={slugifyHeading(node)}
+        className="lg:scroll-mt-24"
+      >
         {children}
       </Heading>
     )
@@ -67,7 +72,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   embed: ({ node }) => {
     return (
-      <div className="mx-auto max-w-screen-sm overflow-hidden rounded shadow-xl">
+      <div className="mx-auto max-w-(--breakpoint-sm) overflow-hidden rounded shadow-xl">
         <div
           className="aspect-h-9 aspect-w-16"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
@@ -89,6 +94,15 @@ const defaultComponents: JSXMapSerializer = {
       </div>
     )
   },
+}
+
+// Define PrismicRichTextProps as a generic type
+interface PrismicRichTextProps<
+  LinkResolverFunction extends
+    prismic.LinkResolverFunction = prismic.LinkResolverFunction,
+> extends BasePrismicRichTextProps {
+  components?: Record<string, React.ComponentType<any>>
+  // Add other props as needed
 }
 
 export const PrismicRichText = function PrismicRichText<

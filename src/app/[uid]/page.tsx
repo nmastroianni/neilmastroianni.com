@@ -11,14 +11,13 @@ type SearchParams = {
   [key: string]: string | string[] | undefined
 }
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: Params
-  searchParams: SearchParams
+export default async function Page(props: {
+  params: Promise<Params>
+  searchParams: Promise<SearchParams>
 }) {
   const client = createClient()
+  const searchParams = await props.searchParams
+  const params = await props.params
   const page = await client.getByUID('page', params.uid).catch(() => notFound())
   const pageNumber = { page: searchParams.page }
   return (
@@ -30,12 +29,11 @@ export default async function Page({
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
+export async function generateMetadata(props: {
+  params: Promise<Params>
 }): Promise<Metadata> {
   const client = createClient()
+  const params = await props.params
   const page = await client.getByUID('page', params.uid).catch(() => notFound())
   const settings = await client.getSingle('settings')
 

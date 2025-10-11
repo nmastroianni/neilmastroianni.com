@@ -126,7 +126,7 @@ const ContentList = ({
   return (
     <>
       <ul
-        className="grid border-b border-b-secondary"
+        className="border-b-secondary grid border-b"
         ref={ref}
         onMouseLeave={() => onMouseLeave()}
       >
@@ -134,12 +134,14 @@ const ContentList = ({
           <li
             key={item.id}
             className="list-item"
-            ref={el => (itemsRef.current[index] = el)}
+            ref={el => {
+              itemsRef.current[index] = el
+            }}
             onMouseEnter={() => onMouseEnter(index)}
           >
             <Link
               href={item.url || '#'}
-              className="flex flex-col justify-between border-t border-t-secondary py-10 md:items-start"
+              className="border-t-secondary flex flex-col justify-between border-t py-10 md:items-start"
               aria-label={asText(item.data.title) || 'View the content'}
             >
               <div className="flex w-full flex-col justify-between md:flex-row md:items-center">
@@ -171,7 +173,7 @@ const ContentList = ({
                 </span>
               </div>
               {isFilled.richText(item.data.excerpt) ? (
-                <div className="prose my-4 lg:prose-lg dark:prose-invert">
+                <div className="prose lg:prose-lg dark:prose-invert my-4">
                   <PrismicRichText field={item.data.excerpt} />
                 </div>
               ) : null}
@@ -183,7 +185,7 @@ const ContentList = ({
       {/* Hover Element */}
       <div
         ref={revealRef}
-        className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
+        className="hover-reveal pointer-events-none absolute top-0 left-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
         style={{
           backgroundImage:
             currentItem !== null ? `url(${contentImages[currentItem]})` : ``,

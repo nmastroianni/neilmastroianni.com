@@ -6,6 +6,7 @@ import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Pagination from '@/components/Pagination'
+import { JSX } from 'react'
 
 /**
  * Props for `ContentIndex`.
@@ -61,7 +62,7 @@ const ContentIndex = async ({
         }}
       />
       {isFilled.richText(slice.primary.description) && (
-        <div className="prose my-4 dark:prose-invert lg:prose-lg">
+        <div className="prose dark:prose-invert lg:prose-lg my-4">
           <PrismicRichText field={slice.primary.description} />
         </div>
       )}

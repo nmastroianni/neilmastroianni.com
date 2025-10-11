@@ -6,6 +6,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import Avatar from './Avatar'
+import { JSX } from 'react'
 
 /**
  * Props for `Biography`.
@@ -22,7 +23,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       data-slice-variation={slice.variation}
       width="xl"
     >
-      <div className="grid items-start gap-8 md:grid-cols-[2fr,1fr]">
+      <div className="grid items-start gap-8 md:grid-cols-[2fr_1fr]">
         <div className="prose dark:prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl">
           <PrismicRichText field={slice.primary.heading} />
           <PrismicRichText field={slice.primary.description} />
@@ -30,7 +31,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
         <div className="row-start-1 md:col-start-2 lg:sticky lg:top-24">
           <Avatar
             image={slice.primary.image}
-            className="rounded-full border-4 border-muted-foreground"
+            className="border-muted-foreground rounded-full border-4"
           />
           <div className="flex justify-center">
             <PrismicNextLink

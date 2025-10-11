@@ -99,7 +99,7 @@ export default function Consent() {
       {renderBanner && (
         <div
           className={cn(
-            'consent fixed bottom-0 z-10 grid w-full bg-secondary-foreground p-3 py-6 opacity-0 md:grid-cols-5',
+            'consent bg-secondary-foreground fixed bottom-0 z-10 grid w-full p-3 py-6 opacity-0 md:grid-cols-5',
           )}
         >
           <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
@@ -111,7 +111,7 @@ export default function Consent() {
           </p>
           <div className="my-4 flex items-center justify-evenly md:col-span-2">
             <Button
-              className="absolute right-1 top-1 text-secondary hover:text-secondary-foreground"
+              className="text-secondary hover:text-secondary-foreground absolute top-1 right-1 cursor-pointer"
               variant="ghost"
               onClick={() => {
                 setHideBanner(true)
@@ -122,7 +122,7 @@ export default function Consent() {
             </Button>
             <Button
               variant="ghost"
-              className="text-secondary"
+              className="text-secondary cursor-pointer"
               onClick={() => {
                 setHideBanner(true)
                 localStorage.setItem(
@@ -139,6 +139,7 @@ export default function Consent() {
             </Button>
             <Button
               size="lg"
+              className="cursor-pointer"
               onClick={() => {
                 setConsent(true)
                 setHideBanner(true)
