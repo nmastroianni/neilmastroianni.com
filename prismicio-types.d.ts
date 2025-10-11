@@ -211,7 +211,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
-type PostDocumentDataSlicesSlice = ContentSlice
+type PostDocumentDataSlicesSlice = ReferencesSlice | ContentSlice
 
 /**
  * Content for Post documents
