@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { JSX, useEffect, useRef } from 'react'
 import { Content, KeyTextField } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { gsap } from 'gsap'
@@ -77,21 +77,21 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       ref={component}
       width="xl"
     >
-      <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
+      <div className="grid grid-cols-1 lg:min-h-[70vh] lg:grid-cols-2 lg:items-center">
         <Shapes />
         <div className="col-start-1 md:row-start-1">
           <h1
-            className="mb-8 font-extrabold leading-none tracking-tighter"
+            className="mb-8 leading-none font-extrabold tracking-tighter"
             aria-label={`${slice.primary.first_name} ${slice.primary.last_name}`}
           >
-            <span className="block text-[clamp(5rem,20vmin,10rem)] text-primary">
+            <span className="text-primary block text-[clamp(5rem,20vmin,10rem)]">
               {renderLetters(slice.primary.first_name, 'first')}
             </span>
             <span className="-mt-[.2rem] block text-[clamp(3.5rem,8vmin,6rem)]">
               {renderLetters(slice.primary.last_name, 'last')}
             </span>
           </h1>
-          <span className="tagline block bg-gradient-to-tr from-blue-300 via-muted-foreground to-blue-100 bg-clip-text text-2xl font-bold uppercase tracking-[.2rem] text-transparent opacity-0 md:text-4xl">
+          <span className="tagline via-muted-foreground block bg-linear-to-tr from-blue-300 to-blue-100 bg-clip-text text-2xl font-bold tracking-[.2rem] text-transparent uppercase opacity-0 md:text-4xl">
             {slice.primary.tag_line}
           </span>
         </div>

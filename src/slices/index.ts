@@ -9,4 +9,5 @@ export const components = {
   experience: dynamic(() => import('./Experience')),
   hero: dynamic(() => import('./Hero')),
   marquee: dynamic(() => import('./Marquee')),
+  references: dynamic(() => import('./References')),
 }

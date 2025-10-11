@@ -4,7 +4,7 @@ import Section from '@/components/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { Dot } from 'lucide-react'
-import React, { useEffect, useRef } from 'react'
+import React, { JSX, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Heading from '@/components/Heading'
@@ -77,7 +77,7 @@ const Marquee = ({ slice }: MarqueeProps): JSX.Element => {
           return (
             <div
               key={slice.id + index}
-              className="marquee-row flex items-center justify-center text-muted"
+              className="marquee-row text-muted flex items-center justify-center"
               aria-label={item.name || undefined}
             >
               {Array.from({ length: 15 }, (_, index) => (

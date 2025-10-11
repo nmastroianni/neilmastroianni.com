@@ -8,8 +8,9 @@ import { asText } from '@prismicio/client'
 
 type Params = { uid: string }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page(props: { params: Promise<Params> }) {
   const client = createClient()
+  const params = await props.params
   const page = await client.getByUID('post', params.uid).catch(() => notFound())
   const settings = await client.getSingle('settings')
   const jsonLd: Graph = {
@@ -65,12 +66,11 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
+export async function generateMetadata(props: {
+  params: Promise<Params>
 }): Promise<Metadata> {
   const client = createClient()
+  const params = await props.params
   const page = await client.getByUID('post', params.uid).catch(() => notFound())
   const settings = await client.getSingle('settings')
 

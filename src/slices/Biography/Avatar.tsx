@@ -73,7 +73,7 @@ const Avatar = ({ image, className }: AvatarProps) => {
           className="avatar-image z-[-1] h-full w-full object-fill"
           priority
         />
-        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 md:block" />
+        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-linear-to-tr from-transparent via-white to-transparent opacity-0 md:block" />
       </div>
     </div>
   )

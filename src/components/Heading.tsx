@@ -20,13 +20,13 @@ export default function Heading({
       className={cn(
         'font-bold',
         {
-          'text-3xl leading-[4rem] md:text-5xl lg:text-6xl lg:leading-[6rem] xl:text-7xl':
+          'text-3xl leading-16 md:text-5xl lg:text-6xl lg:leading-24 xl:text-7xl':
             size === '7xl',
-          'text-2xl leading-[3rem] md:text-4xl lg:text-5xl lg:leading-[5rem] xl:text-6xl':
+          'text-2xl leading-12 md:text-4xl lg:text-5xl lg:leading-20 xl:text-6xl':
             size === '6xl',
-          'text-2xl leading-[2rem] lg:text-5xl lg:leading-[4rem]':
+          'text-2xl leading-8 lg:text-5xl lg:leading-16':
             size === '5xl',
-          'text-xl lg:text-4xl lg:leading-[3rem]': size === '4xl',
+          'text-xl lg:text-4xl lg:leading-12': size === '4xl',
           'text-lg lg:text-3xl': size === '3xl',
           'text-lg': size === '2xl',
           'text-base': size === 'xl',

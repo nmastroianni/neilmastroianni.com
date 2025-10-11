@@ -3,6 +3,7 @@ import { PrismicRichText } from '@/components/PrismicRichText'
 import Section from '@/components/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
+import { JSX } from 'react'
 
 /**
  * Props for `Experience`.
@@ -18,7 +19,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className="border-l border-r border-secondary"
+      className="border-secondary border-r border-l"
     >
       <div className="mx-auto w-full max-w-prose">
         <Heading as="h2" size="6xl" className="max-w-prose">
@@ -38,7 +39,7 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
               {item.organization}
             </Heading>
           </div>
-          <div className="prose prose-invert mt-4 lg:prose-lg xl:prose-xl 2xl:prose-2xl">
+          <div className="prose prose-invert lg:prose-lg xl:prose-xl 2xl:prose-2xl mt-4">
             <PrismicRichText field={item.description} />
           </div>
         </div>
