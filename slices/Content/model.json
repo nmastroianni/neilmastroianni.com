@@ -1,0 +1,128 @@
+{
+  "id": "content",
+  "type": "SharedSlice",
+  "name": "Content",
+  "description": "Content",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter page content",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl,preformatted"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "javascript",
+      "name": "Javascript",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter javascript code",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "jsx",
+      "name": "JSX",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter javascript code",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter javascript code",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "tsx",
+      "name": "TSX",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter tsx code",
+            "allowTargetBlank": true,
+            "single": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Enter javascript code",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

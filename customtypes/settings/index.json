@@ -1,0 +1,90 @@
+{
+  "id": "settings",
+  "json": {
+    "Main": {
+      "domain": {
+        "type": "Text",
+        "config": {
+          "label": "Domain",
+          "placeholder": ""
+        }
+      },
+      "site_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Site Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "site_description": {
+        "type": "Text",
+        "config": {
+          "label": "Site Description",
+          "placeholder": ""
+        }
+      },
+      "site_image": {
+        "type": "Image",
+        "config": {
+          "label": "Site Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "navigation_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Navigation Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Navigation",
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "github": {
+        "type": "Link",
+        "config": {
+          "label": "GitHub",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "LinkedIn",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  },
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "blew",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "cover",
+							"type": "Text"
+						}
+					],
+					[
+						"years",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "roof",
+							"type": "Text"
+						}
+					],
+					[
+						"organization",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "dug",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ipsum ad laboris est."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
