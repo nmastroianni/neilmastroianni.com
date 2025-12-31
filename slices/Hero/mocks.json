@@ -1,0 +1,24 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "first_name": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Neil"
+      },
+      "last_name": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Mastroianni"
+      },
+      "tag_line": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Creative Educator"
+      }
+    },
+    "items": []
+  }
+]

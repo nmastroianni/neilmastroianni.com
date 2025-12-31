@@ -1,9 +1,5 @@
 {
   "id": "homepage",
-  "label": "Homepage",
-  "format": "page",
-  "repeatable": false,
-  "status": true,
   "json": {
     "Main": {
       "slices": {
@@ -57,5 +53,9 @@
         "type": "Text"
       }
     }
-  }
+  },
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "format": "page"
 }

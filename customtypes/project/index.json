@@ -1,9 +1,5 @@
 {
   "id": "project",
-  "label": "Project",
-  "format": "page",
-  "repeatable": true,
-  "status": true,
   "json": {
     "Main": {
       "title": {
@@ -77,5 +73,9 @@
         "type": "Text"
       }
     }
-  }
+  },
+  "label": "Project",
+  "repeatable": true,
+  "status": true,
+  "format": "page"
 }

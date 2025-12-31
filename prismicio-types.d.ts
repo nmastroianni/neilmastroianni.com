@@ -139,7 +139,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
-type PageDocumentDataSlicesSlice = ContentIndexSlice | ContentSlice
+type PageDocumentDataSlicesSlice = HeroSlice | ContentIndexSlice | ContentSlice
 
 /**
  * Content for Page documents
@@ -1063,6 +1063,61 @@ type HeroSliceVariation = HeroSliceDefault
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
 
 /**
+ * Item in *Marquee → Default → Primary → Items*
+ */
+export interface MarqueeSliceDefaultPrimaryItemsItem {
+  /**
+   * Name field in *Marquee → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.default.primary.items[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField
+
+  /**
+   * Color field in *Marquee → Default → Primary → Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.default.primary.items[].color
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  color: prismic.ColorField
+
+  /**
+   * Logo field in *Marquee → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.default.primary.items[].logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
+   * Link field in *Marquee → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.default.primary.items[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Description field in *Marquee → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: marquee.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField
+}
+
+/**
  * Primary content in *Marquee → Default → Primary*
  */
 export interface MarqueeSliceDefaultPrimary {
@@ -1075,31 +1130,16 @@ export interface MarqueeSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   heading: prismic.RichTextField
-}
-
-/**
- * Primary content in *Marquee → Items*
- */
-export interface MarqueeSliceDefaultItem {
-  /**
-   * Name field in *Marquee → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: marquee.items[].name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  name: prismic.KeyTextField
 
   /**
-   * Color field in *Marquee → Items*
+   * Items field in *Marquee → Default → Primary*
    *
-   * - **Field Type**: Color
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: marquee.items[].color
-   * - **Documentation**: https://prismic.io/docs/fields/color
+   * - **API ID Path**: marquee.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  color: prismic.ColorField
+  items: prismic.GroupField<Simplify<MarqueeSliceDefaultPrimaryItemsItem>>
 }
 
 /**
@@ -1112,7 +1152,7 @@ export interface MarqueeSliceDefaultItem {
 export type MarqueeSliceDefault = prismic.SharedSliceVariation<
   'default',
   Simplify<MarqueeSliceDefaultPrimary>,
-  Simplify<MarqueeSliceDefaultItem>
+  never
 >
 
 /**
@@ -1270,8 +1310,8 @@ declare module '@prismicio/client' {
       HeroSliceVariation,
       HeroSliceDefault,
       MarqueeSlice,
+      MarqueeSliceDefaultPrimaryItemsItem,
       MarqueeSliceDefaultPrimary,
-      MarqueeSliceDefaultItem,
       MarqueeSliceVariation,
       MarqueeSliceDefault,
       ReferencesSlice,
