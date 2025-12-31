@@ -17,7 +17,7 @@ const References: FC<ReferencesProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-2 md:py-8"
+      className="px-4 py-2 md:py-8 lg:px-0"
     >
       <div className="mx-auto prose list-none lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert prose-ul:list-none prose-ul:pl-0">
         {isFilled.keyText(slice.primary.heading) ? (
