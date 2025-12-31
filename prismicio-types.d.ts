@@ -139,7 +139,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
-type PageDocumentDataSlicesSlice = ContentIndexSlice | ContentSlice
+type PageDocumentDataSlicesSlice = HeroSlice | ContentIndexSlice | ContentSlice
 
 /**
  * Content for Page documents

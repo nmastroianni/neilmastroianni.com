@@ -8,26 +8,31 @@ type CodeBlockProps = {
   node: CustomPreformattedNode
 }
 
-let highlighter: Highlighter | null = null
+// let highlighter: Highlighter | null = null
+const globalForShiki = global as unknown as { highlighter?: Highlighter }
 
 const getSharedHighlighter = async () => {
-  if (!highlighter) {
-    highlighter = await createHighlighter({
-      themes: ['github-dark'],
-      langs: [
-        'javascript',
-        'typescript',
-        'tsx',
-        'jsx',
-        'python',
-        'css',
-        'html',
-        'json',
-        'bash',
-      ],
-    })
+  if (globalForShiki.highlighter) {
+    return globalForShiki.highlighter
   }
-  return highlighter
+  const instance = (globalForShiki.highlighter = await createHighlighter({
+    themes: ['github-dark-high-contrast'],
+    langs: [
+      'javascript',
+      'typescript',
+      'tsx',
+      'jsx',
+      'python',
+      'css',
+      'html',
+      'json',
+      'bash',
+      'powershell',
+    ],
+  }))
+  globalForShiki.highlighter = instance
+
+  return globalForShiki.highlighter
 }
 
 const CodeBlock = async ({ node }: CodeBlockProps) => {
@@ -52,7 +57,7 @@ const CodeBlock = async ({ node }: CodeBlockProps) => {
   // Generate HTML with a transformer to add line numbers
   const html = shiki.codeToHtml(displayText, {
     lang,
-    theme: 'github-dark',
+    theme: 'github-dark-high-contrast',
     transformers: [
       {
         line(node, line) {
@@ -75,7 +80,7 @@ const CodeBlock = async ({ node }: CodeBlockProps) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="font-mono text-[10px] tracking-widest text-white/30 uppercase">
+          <span className="font-mono text-[10px] tracking-widest text-white/60 uppercase">
             {lang}
           </span>
           {/* Button is now part of the header flex context */}

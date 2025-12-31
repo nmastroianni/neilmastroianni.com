@@ -28,7 +28,7 @@ const Marquee = ({ slice }: MarqueeProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="container mx-auto max-w-5xl px-6 py-24 sm:py-32 md:py-40"
+      className="container mx-auto max-w-5xl px-6 py-8 sm:py-10 md:py-12"
     >
       <div className="text-center">
         <PrismicRichText

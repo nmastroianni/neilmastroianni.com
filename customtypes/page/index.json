@@ -1,5 +1,9 @@
 {
   "id": "page",
+  "label": "Page",
+  "repeatable": true,
+  "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "uid": {
@@ -22,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            },
             "content_index": {
               "type": "SharedSlice"
             },
@@ -59,9 +66,5 @@
         "type": "Text"
       }
     }
-  },
-  "label": "Page",
-  "repeatable": true,
-  "status": true,
-  "format": "page"
+  }
 }
