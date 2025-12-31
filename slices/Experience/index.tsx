@@ -22,7 +22,7 @@ const Experience = ({ slice }: ExperienceProps) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="container mx-auto max-w-5xl px-6 py-24 sm:py-32 md:py-40"
+      className="container mx-auto max-w-5xl px-6 py-4"
     >
       <Heading as="h2" size="5xl" className="mb-12 text-center">
         {heading}

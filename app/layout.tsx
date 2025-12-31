@@ -6,6 +6,7 @@ import Navbar from '@/components/navbar'
 import { PrismicPreview } from '@prismicio/next'
 import { createClient, repositoryName } from '@/prismicio'
 import { asText } from '@prismicio/client/richtext'
+import Footer from '@/components/Footer'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -52,6 +53,7 @@ export default function RootLayout({
           </a>
           <Navbar />
           <main id="main-content">{children}</main>
+          <Footer />
           <PrismicPreview repositoryName={repositoryName} />
         </ThemeProvider>
       </body>
