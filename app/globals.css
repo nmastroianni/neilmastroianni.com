@@ -126,6 +126,10 @@
 }
 
 @layer components {
+  .hanging-indent {
+    @apply block pl-4;
+    text-indent: -1.5rem;
+  }
   .sr-only {
     position: absolute;
     width: 1px;

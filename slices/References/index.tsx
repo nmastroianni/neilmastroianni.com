@@ -1,11 +1,13 @@
-import { FC } from "react";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { FC, ReactNode } from 'react'
+import { Content, isFilled } from '@prismicio/client'
+import { SliceComponentProps } from '@prismicio/react'
+import Heading from '@/components/Heading'
+import { PrismicRichText } from '@/components/PrismicRichText'
 
 /**
  * Props for `References`.
  */
-export type ReferencesProps = SliceComponentProps<Content.ReferencesSlice>;
+export type ReferencesProps = SliceComponentProps<Content.ReferencesSlice>
 
 /**
  * Component for "References" Slices.
@@ -15,16 +17,39 @@ const References: FC<ReferencesProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="py-2 md:py-8"
     >
-      Placeholder component for demo (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use the Prismic MCP server with your code editor
-       * 📚 Docs: https://prismic.io/docs/ai#code-with-prismics-mcp-server
-       */}
+      <div className="mx-auto prose list-none lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert prose-ul:list-none prose-ul:pl-0">
+        {isFilled.keyText(slice.primary.heading) ? (
+          <Heading as="h2" size="5xl">
+            {slice.primary.heading}
+          </Heading>
+        ) : (
+          <Heading as="h2" size="5xl">
+            References
+          </Heading>
+        )}
+        {isFilled.group(slice.primary.sources) && (
+          <ul className="">
+            {slice.primary.sources.map((source, i) => {
+              return (
+                <li key={slice.id + i}>
+                  <PrismicRichText
+                    field={source.citation}
+                    components={{
+                      paragraph: ({ children }: { children: ReactNode }) => (
+                        <p className="hanging-indent">{children}</p>
+                      ),
+                    }}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </div>
     </section>
-  );
-};
+  )
+}
 
-export default References;
+export default References
