@@ -25,17 +25,18 @@ const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
               aria-labelledby={slugifyHeading({
                 text: asText(item.data.title),
               })}
+              className="group"
             >
-              <div className="flex w-full flex-col items-center justify-between md:flex-row">
+              <div className="flex w-full flex-col items-center justify-between lg:flex-row">
                 {isFilled.image(item.data.featured_image) && (
                   <PrismicNextImage
                     field={item.data.featured_image}
                     imgixParams={{ ar: '11:16', fit: 'crop' }}
                     width={220}
-                    className="rounded-lg"
+                    className="rounded-lg transition-opacity duration-300 ease-in-out group-hover:opacity-100 lg:opacity-60"
                   />
                 )}
-                <div className="flex flex-col gap-y-3 lg:pl-8">
+                <div className="flex flex-col gap-y-3 py-4 text-center lg:pl-8 lg:text-left">
                   <PrismicRichText
                     field={item.data.title}
                     components={{
@@ -50,7 +51,7 @@ const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
                       ),
                     }}
                   />
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 py-2">
                     {item.tags.length > 0 &&
                       item.tags.map(tag => (
                         <span
@@ -65,7 +66,7 @@ const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
                       ))}
                   </div>
                   {isFilled.richText(item.data.excerpt) ? (
-                    <div className="my-4 prose lg:prose-lg dark:prose-invert">
+                    <div className="my-4 prose text-left lg:prose-lg dark:prose-invert">
                       <PrismicRichText field={item.data.excerpt} />
                     </div>
                   ) : null}
