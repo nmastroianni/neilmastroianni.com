@@ -27,7 +27,11 @@ export default async function Page({
   return (
     <>
       {page.data.slices[0]?.slice_type !== 'hero' ? (
-        <Heading as="h1" size="5xl" className="my-6 lg:my-8 lg:text-center">
+        <Heading
+          as="h1"
+          size="5xl"
+          className="my-6 text-center lg:my-8 lg:text-center"
+        >
           {asText(page.data.title)}
         </Heading>
       ) : null}

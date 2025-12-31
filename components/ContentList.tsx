@@ -16,7 +16,7 @@ type ContentListProps = {
 
 const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
   return (
-    <ul className="grid gap-y-8 divide-y-2 border-b border-b-secondary">
+    <ul className="grid gap-y-8 divide-y-2 border-b border-b-secondary px-4 lg:px-0">
       {content.map((item, index) => {
         return (
           <li key={`${item.id}-${index}`} className="pb-8">
@@ -26,7 +26,7 @@ const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
                 text: asText(item.data.title),
               })}
             >
-              <div className="flex w-full flex-col justify-between md:flex-row md:items-center">
+              <div className="flex w-full flex-col items-center justify-between md:flex-row">
                 {isFilled.image(item.data.featured_image) && (
                   <PrismicNextImage
                     field={item.data.featured_image}

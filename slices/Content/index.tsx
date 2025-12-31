@@ -18,7 +18,7 @@ const Content: FC<ContentProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="py-6 lg:py-8"
     >
-      <div className="mx-auto prose lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert">
+      <div className="mx-auto prose px-4 lg:prose-lg lg:px-0 xl:prose-xl 2xl:prose-2xl dark:prose-invert">
         <PrismicRichText field={slice.primary.content} />
       </div>
     </section>

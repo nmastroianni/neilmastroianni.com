@@ -59,9 +59,7 @@ const NavbarClient = ({ settings }: NavbarClientProps) => {
               field={settings.site_title}
               components={{
                 paragraph: ({ children }) => (
-                  <span className="hidden font-bold sm:inline-block">
-                    {children}
-                  </span>
+                  <span className="font-bold sm:inline-block">{children}</span>
                 ),
               }}
             />
@@ -76,7 +74,7 @@ const NavbarClient = ({ settings }: NavbarClientProps) => {
                 </Button>
               ))}
             </nav>
-            <div className="hidden md:block">
+            <div className="hidden md:ml-4 md:block">
               <ThemeToggle />
             </div>
           </div>
