@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { asImageSrc, asText } from '@prismicio/client'
+import { asText } from '@prismicio/client'
 import { SliceZone } from '@prismicio/react'
 import Heading from '@/components/Heading'
 import { createClient } from '@/prismicio'

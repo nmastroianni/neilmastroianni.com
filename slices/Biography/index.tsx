@@ -59,6 +59,7 @@ const Biography = ({ slice }: BiographyProps) => {
               fetchPriority="high"
               height={960}
               width={960}
+              preload
             />
           </motion.div>
           <motion.div
