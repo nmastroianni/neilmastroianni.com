@@ -55,10 +55,10 @@ const Biography = ({ slice }: BiographyProps) => {
           >
             <PrismicNextImage
               field={image}
-              className="rounded-xl object-cover"
+              className="max-w-76 rounded-xl object-cover"
               fetchPriority="high"
-              height={960}
-              width={960}
+              height={304}
+              width={304}
               preload
             />
           </motion.div>
