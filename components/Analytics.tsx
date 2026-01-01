@@ -41,7 +41,7 @@ export default function Analytics({
       {gaId && <GoogleAnalytics gaId={gaId} />}
 
       {clarityId && (
-        <Script id="microsoft-clarity" strategy="worker">
+        <Script id="microsoft-clarity" type="text/partytown">
           {`(function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="/proxies/clarity/tag/"+i;
@@ -51,7 +51,7 @@ export default function Analytics({
       )}
 
       {fbId && (
-        <Script id="fb-pixel" strategy="worker">
+        <Script id="fb-pixel" type="text/partytown">
           {`!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};

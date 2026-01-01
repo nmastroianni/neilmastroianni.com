@@ -55,7 +55,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <Partytown
           forward={['fbq', 'clarity']}
-          debug={!isProd}
+          debug={isProd === true}
           resolveUrl={url => {
             if (url.hostname === 'connect.facebook.net') {
               const proxyUrl = new URL(
