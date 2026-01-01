@@ -7,6 +7,9 @@ import { PrismicPreview } from '@prismicio/next'
 import { createClient, repositoryName } from '@/prismicio'
 import { asText } from '@prismicio/client/richtext'
 import Footer from '@/components/Footer'
+import Analytics from '@/components/Analytics'
+import { Toaster } from '@/components/ui/sonner'
+import PrivacyToast from '@/components/PrivacyToast'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -37,6 +40,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID
+  const fbId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
+  const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
@@ -54,8 +61,11 @@ export default function RootLayout({
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
+          <PrivacyToast />
+          <Toaster richColors closeButton />
           <PrismicPreview repositoryName={repositoryName} />
         </ThemeProvider>
+        {isProd && <Analytics gaId={gaId} clarityId={clarityId} fbId={fbId} />}
       </body>
     </html>
   )

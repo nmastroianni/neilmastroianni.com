@@ -12,6 +12,7 @@
     "format": "bunx prettier --write ."
   },
   "dependencies": {
+    "@next/third-parties": "^16.1.1",
     "@prismicio/client": "^7.21.1",
     "@prismicio/next": "^2.0.2",
     "@prismicio/react": "^3.2.2",
@@ -30,6 +31,7 @@
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
     "shiki": "^3.20.0",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

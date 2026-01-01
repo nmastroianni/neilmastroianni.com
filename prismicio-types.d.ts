@@ -139,7 +139,11 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
-type PageDocumentDataSlicesSlice = HeroSlice | ContentIndexSlice | ContentSlice
+type PageDocumentDataSlicesSlice =
+  | OptOutSlice
+  | HeroSlice
+  | ContentIndexSlice
+  | ContentSlice
 
 /**
  * Content for Page documents
@@ -1170,6 +1174,33 @@ type MarqueeSliceVariation = MarqueeSliceDefault
 export type MarqueeSlice = prismic.SharedSlice<'marquee', MarqueeSliceVariation>
 
 /**
+ * Default variation for OptOut Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OptOutSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *OptOut*
+ */
+type OptOutSliceVariation = OptOutSliceDefault
+
+/**
+ * OptOut Shared Slice
+ *
+ * - **API ID**: `opt_out`
+ * - **Description**: OptOut
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OptOutSlice = prismic.SharedSlice<'opt_out', OptOutSliceVariation>
+
+/**
  * Item in *References → Default → Primary → Sources*
  */
 export interface ReferencesSliceDefaultPrimarySourcesItem {
@@ -1314,6 +1345,9 @@ declare module '@prismicio/client' {
       MarqueeSliceDefaultPrimary,
       MarqueeSliceVariation,
       MarqueeSliceDefault,
+      OptOutSlice,
+      OptOutSliceVariation,
+      OptOutSliceDefault,
       ReferencesSlice,
       ReferencesSliceDefaultPrimarySourcesItem,
       ReferencesSliceDefaultPrimary,
