@@ -64,13 +64,6 @@ export default function RootLayout({
               )
               return proxyUrl
             }
-            if (url.hostname === 'www.clarity.ms') {
-              const proxyUrl = new URL(
-                '/proxies/clarity' + url.pathname,
-                'https://www.neilmastroianni.com',
-              )
-              return proxyUrl
-            }
             return url
           }}
         />
