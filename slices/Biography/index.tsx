@@ -52,6 +52,7 @@ const Biography = ({ slice }: BiographyProps) => {
             whileInView={animation.whileInView}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
+            className="flex justify-center"
           >
             <PrismicNextImage
               field={image}
