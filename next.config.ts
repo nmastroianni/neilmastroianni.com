@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
         destination: 'https://connect.facebook.net/:path*',
       },
       {
+        source: '/proxies/facebook/signals/config/:path*',
+        destination: 'https://connect.facebook.net/signals/config/:path*',
+      },
+      {
         // Proxies Microsoft Clarity script
         source: '/proxies/clarity/:path*',
         destination: 'https://www.clarity.ms/:path*',
