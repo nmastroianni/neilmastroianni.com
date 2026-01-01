@@ -40,7 +40,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  const gaId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID
   const fbId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
   const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
