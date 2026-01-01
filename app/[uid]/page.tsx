@@ -44,20 +44,24 @@ export default async function Page({
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
+export async function generateMetadata(props: {
   params: Promise<Params>
 }): Promise<Metadata> {
-  const { uid } = await params
   const client = createClient()
-  const page = await client.getByUID('page', uid).catch(() => notFound())
+  const params = await props.params
+  const page = await client.getByUID('page', params.uid).catch(() => notFound())
+  const settings = await client.getSingle('settings')
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: `${asText(page.data.title) || page.data.meta_title} • ${asText(
+      settings.data.site_title,
+    )}`,
+    description: page.data.meta_description || settings.data.site_description,
     openGraph: {
-      images: [{ url: asImageSrc(page.data.meta_image) ?? '' }],
+      images: [page.data.meta_image.url || settings.data.site_image.url || ''],
+    },
+    alternates: {
+      canonical: `https://${settings.data.domain || `example.com`}${page.url}`,
     },
   }
 }
