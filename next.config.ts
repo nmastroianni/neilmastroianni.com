@@ -19,6 +19,21 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Permissions-Policy',
+            // Disable unload to fix Lighthouse warnings and enable bfcache
+            value: 'unload=()',
+          },
+        ],
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
