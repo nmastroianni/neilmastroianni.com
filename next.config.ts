@@ -6,6 +6,20 @@ const nextConfig: NextConfig = {
   experimental: {
     nextScriptWorkers: true,
   },
+  async rewrites() {
+    return [
+      {
+        // Proxies Facebook Pixel script
+        source: '/proxies/facebook/:path*',
+        destination: 'https://connect.facebook.net/:path*',
+      },
+      {
+        // Proxies Microsoft Clarity script
+        source: '/proxies/clarity/:path*',
+        destination: 'https://www.clarity.ms/:path*',
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
