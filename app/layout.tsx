@@ -46,6 +46,11 @@ export default function RootLayout({
   const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://images.prismic.io" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
