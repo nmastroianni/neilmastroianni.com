@@ -47,22 +47,18 @@ const Biography = ({ slice }: BiographyProps) => {
         </div>
 
         <div className="order-first grid grid-cols-1 gap-8 lg:sticky lg:top-32 lg:order-0 lg:col-span-4">
-          <motion.div
-            initial={animation.initial}
-            whileInView={animation.whileInView}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-            className="flex justify-center"
-          >
+          <div className="flex justify-center">
             <PrismicNextImage
               field={image}
               className="max-w-76 rounded-xl object-cover"
               fetchPriority="high"
               height={304}
               width={304}
-              preload
+              loading="eager"
+              sizes="304px"
+              preload={true}
             />
-          </motion.div>
+          </div>
           <motion.div
             initial={animation.initial}
             whileInView={animation.whileInView}
