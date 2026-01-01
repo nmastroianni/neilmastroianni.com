@@ -33,6 +33,9 @@ const ContentList: FC<ContentListProps> = ({ content, ctaText }) => {
                     field={item.data.featured_image}
                     imgixParams={{ ar: '11:16', fit: 'crop' }}
                     width={220}
+                    sizes="220px"
+                    fetchPriority={index === 0 ? 'high' : 'low'}
+                    loading={index === 0 ? 'eager' : 'lazy'}
                     className="rounded-lg transition-opacity duration-300 ease-in-out group-hover:opacity-100 lg:opacity-60"
                   />
                 )}
