@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
+    "dev": "bun run partytown && concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
     "next:dev": "next",
-    "build": "next build",
+    "build": "bun run partytown && bun run next build",
+    "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
     "format": "bunx prettier --write ."
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.10.3",
     "@next/third-parties": "^16.1.1",
     "@prismicio/client": "^7.21.1",
     "@prismicio/next": "^2.0.2",
