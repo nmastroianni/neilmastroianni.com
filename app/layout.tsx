@@ -47,6 +47,7 @@ export default function RootLayout({
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID
   const fbId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
   const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+  const siteUrl = isProd ? 'https://www.neilmastroianni.com' : ''
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
@@ -54,15 +55,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://connect.facebook.net" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <Partytown
-          forward={['fbq', 'clarity']}
-          debug={isProd === false}
+          forward={['fbq']}
+          debug={!isProd}
           resolveUrl={url => {
             if (url.hostname === 'connect.facebook.net') {
-              const proxyUrl = new URL(
-                '/proxies/facebook' + url.pathname,
-                'https://www.neilmastroianni.com',
+              // Return a relative path in dev to avoid CORS blocks
+              return new URL(
+                `${siteUrl}/proxies/facebook${url.pathname}${url.search}`,
+                window.location.origin,
               )
-              return proxyUrl
             }
             return url
           }}
