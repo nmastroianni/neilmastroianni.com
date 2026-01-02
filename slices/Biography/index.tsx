@@ -7,6 +7,7 @@ import { motion } from 'motion/react'
 
 import { PrismicRichText } from '@/components/PrismicRichText'
 import { Button } from '@/components/ui/button'
+import Section from '@/components/Section'
 
 export type BiographyProps = SliceComponentProps<Content.BiographySlice>
 
@@ -20,10 +21,11 @@ const Biography = ({ slice }: BiographyProps) => {
   }
 
   return (
-    <section
+    <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="container mx-auto max-w-5xl px-6 py-24 sm:py-32 md:py-40"
+      width="xl"
+      className="py-6 lg:py-8"
     >
       <div className="relative grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
         <div className="order-last grid grid-cols-1 gap-y-8 lg:order-0 lg:col-span-8">
@@ -32,6 +34,7 @@ const Biography = ({ slice }: BiographyProps) => {
             whileInView={animation.whileInView}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="text-center lg:text-left"
           >
             <PrismicRichText field={heading} />
           </motion.div>
@@ -40,7 +43,7 @@ const Biography = ({ slice }: BiographyProps) => {
             whileInView={animation.whileInView}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
-            className="prose lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
+            className="mx-auto prose lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert"
           >
             <PrismicRichText field={description} />
           </motion.div>
@@ -74,7 +77,7 @@ const Biography = ({ slice }: BiographyProps) => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
 

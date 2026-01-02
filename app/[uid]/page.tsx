@@ -30,7 +30,7 @@ export default async function Page({
         <Heading
           as="h1"
           size="5xl"
-          className="my-6 text-center lg:my-8 lg:text-center"
+          className="my-6 scroll-mt-22 text-center lg:my-8 lg:text-center"
         >
           {asText(page.data.title)}
         </Heading>

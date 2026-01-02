@@ -1,5 +1,9 @@
 {
   "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "domain": {
@@ -81,10 +85,43 @@
           "select": null
         }
       }
+    },
+    "Footer": {
+      "footer_message": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Footer Message",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "footer_navigation": {
+        "type": "Link",
+        "config": {
+          "label": "Footer Navigation",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true,
+          "variants": [
+            "default",
+            "outline",
+            "secondary",
+            "ghost",
+            "destructive",
+            "link"
+          ]
+        }
+      },
+      "privacy_toast_message": {
+        "type": "Text",
+        "config": {
+          "label": "Privacy Toast Message",
+          "placeholder": ""
+        }
+      }
     }
-  },
-  "label": "Settings",
-  "repeatable": false,
-  "status": true,
-  "format": "custom"
+  }
 }

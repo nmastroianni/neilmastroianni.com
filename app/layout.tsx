@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -48,6 +48,8 @@ export default function RootLayout({
   const fbId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
   const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
   const siteUrl = isProd ? 'https://www.neilmastroianni.com' : ''
+  const client = createClient()
+  const settings = await client.getSingle('settings')
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
@@ -84,7 +86,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
-          <PrivacyToast />
+          <PrivacyToast message={settings.data.privacy_toast_message} />
           <Toaster richColors closeButton />
           <PrismicPreview repositoryName={repositoryName} />
         </ThemeProvider>

@@ -6,6 +6,8 @@ import Section from '@/components/Section'
 import { asText, isFilled } from '@prismicio/client'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { cn } from '@/lib/utils'
+import { PrismicRichText } from './PrismicRichText'
+import { Button } from './ui/button'
 
 export default async function Footer() {
   const client = createClient()
@@ -16,6 +18,13 @@ export default async function Footer() {
       width="xl"
       className="mt-auto w-full border-t text-secondary-foreground lg:px-0"
     >
+      {isFilled.richText(settings.data.footer_message) && (
+        <div className="flex justify-center pb-6 lg:pb-8">
+          <p className="mx-auto prose dark:prose-invert">
+            {<PrismicRichText field={settings.data.footer_message} />}
+          </p>
+        </div>
+      )}
       <div className="flex flex-col justify-between gap-y-8 px-4 lg:flex-row lg:gap-y-0">
         <div className="name group flex flex-1 flex-col items-center justify-center gap-x-4 gap-y-2 sm:justify-self-start">
           <Link
@@ -33,19 +42,21 @@ export default async function Footer() {
           aria-label="Footer Navigation"
         >
           <ul className="flex items-center gap-1">
-            {settings.data.navigation.map(({ link, label }, index) => (
-              <React.Fragment key={label}>
+            {settings.data.footer_navigation.map((link, index) => (
+              <React.Fragment key={link.key}>
                 <li>
-                  <PrismicNextLink
-                    className={cn(
-                      'group relative block overflow-hidden rounded px-3 py-1 text-base font-bold text-secondary-foreground transition-colors duration-150 hover:hover:text-primary',
-                    )}
-                    field={link}
-                  >
-                    {label}
-                  </PrismicNextLink>
+                  <Button asChild variant={link.variant}>
+                    <PrismicNextLink
+                      className={cn(
+                        'group relative block overflow-hidden rounded px-3 py-1 text-base font-bold text-secondary-foreground transition-colors duration-150 hover:hover:text-primary',
+                      )}
+                      field={link}
+                    >
+                      {link.text}
+                    </PrismicNextLink>
+                  </Button>
                 </li>
-                {index < settings.data.navigation.length - 1 && (
+                {index < settings.data.footer_navigation.length - 1 && (
                   <span
                     className="text-4xl leading-0 text-secondary"
                     aria-hidden="true"

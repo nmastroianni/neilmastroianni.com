@@ -524,7 +524,46 @@ interface SettingsDocumentData {
     unknown,
     prismic.FieldState,
     never
+  > /**
+   * Footer Message field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_message
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  footer_message: prismic.RichTextField
+
+  /**
+   * Footer Navigation field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_navigation
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  footer_navigation: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      'default' | 'outline' | 'secondary' | 'ghost' | 'destructive' | 'link'
+    >
   >
+
+  /**
+   * Privacy Toast Message field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.privacy_toast_message
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  privacy_toast_message: prismic.KeyTextField
 }
 
 /**
