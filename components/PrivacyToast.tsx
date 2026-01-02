@@ -62,7 +62,7 @@ export default function PrivacyToast({ message }: PrivacyToastProps) {
 
       return () => clearTimeout(timer)
     }
-  }, [router])
+  }, [router, message])
 
   return null
 }
