@@ -20,9 +20,9 @@ export default async function Footer() {
     >
       {isFilled.richText(settings.data.footer_message) && (
         <div className="flex justify-center pb-6 lg:pb-8">
-          <p className="mx-auto prose dark:prose-invert">
+          <div className="mx-auto prose dark:prose-invert">
             {<PrismicRichText field={settings.data.footer_message} />}
-          </p>
+          </div>
         </div>
       )}
       <div className="flex flex-col justify-between gap-y-8 px-4 lg:flex-row lg:gap-y-0">
