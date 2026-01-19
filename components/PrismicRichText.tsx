@@ -71,9 +71,9 @@ const defaultComponents: JSXMapSerializer = {
   },
   embed: ({ node }) => {
     return (
-      <div className="mx-auto max-w-sm overflow-hidden rounded shadow-xl">
+      <div className="mx-auto max-w-(--breakpoint-sm) overflow-hidden rounded">
         <div
-          className="aspect-h-9 aspect-w-16"
+          className="aspect-video w-full [&>iframe]:h-full [&>iframe]:w-full [&>iframe]:border-0"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
         />
       </div>
